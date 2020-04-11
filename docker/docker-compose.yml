@@ -6,6 +6,6 @@ services:
     container_name: basic-health-units-plataform
     build: ./
     ports:
-      - 4000:4000
+      - 8000:8000
     volumes:
       - ../:/var/www/html/basic-health-units-plataform
