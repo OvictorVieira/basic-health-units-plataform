@@ -1,10 +1,19 @@
 import React from 'react';
-import './App.css';
+import ReactNotifications from 'react-notifications-component';
+
+import './assets/App.scss';
+
+import Routes from "./app/routes";
 
 function App() {
+
   return (
-    <div className="App">
-        
+
+    <div className='container-fluid'>
+
+      <ReactNotifications />
+      <Routes />
+
     </div>
   );
 }

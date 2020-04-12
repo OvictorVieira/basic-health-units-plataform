@@ -1,0 +1,36 @@
+@import '~bootstrap/scss/bootstrap';
+@import './shared/Color';
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  background: linear-gradient(110deg, $primary-color 40%, $secondary-color 80%);
+  -webkit-font-smoothing: antialiased !important;
+}
+
+body, input, button {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.875em;
+}
+
+.form-control {
+
+  &:focus {
+    border-color: $primary-color;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgba($secondary-color, 0.25);
+  }
+}
+
+.btn-primary {
+  color: $white;
+  background: linear-gradient(120deg, $primary-color 10%, $secondary-color 90%);
+  border-color: $primary-color;
+
+  &:hover {
+    background: linear-gradient(60deg, $primary-color 10%, $secondary-color 90%);
+    border-color: $primary-color;
+  }
+}
