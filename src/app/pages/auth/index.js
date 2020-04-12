@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import Messages from "../utils/Messages";
+import 'react-notifications-component/dist/theme.css';
 
 import Authenticator from "../../services/authentication/Authenticator";
 import CommunicatorBase from "../../services/CommunicatorBase";
+import CreateNotification from '../utils/NotificationsCreator'
 
 import logo from "../../../assets/images/logo-bionexo-green-pool.png";
 
 class Auth extends Component {
 
   constructor(props) {
+
     super(props);
 
     this.state = {
@@ -16,9 +18,15 @@ class Auth extends Component {
       email: '',
       cnpj: '',
       password: '',
-      message: '',
-      typeMessage: ''
-    }
+    };
+
+    this.notificationsCreator = new CreateNotification;
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleAuthentication = this.handleAuthentication.bind(this);
+    this.treatSuccess = this.treatSuccess.bind(this);
+    this.treatFailure = this.treatFailure.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleSubmit(event) {
@@ -50,22 +58,34 @@ class Auth extends Component {
   }
 
   treatSuccess(authentication) {
+
     const { name, email, cnpj, authentication_token } = authentication;
 
-    this.setState({ name: name });
-    this.setState({ email: email });
-    this.setState( { cnpj: cnpj });
+    this.setState({
+      name,
+      email,
+      cnpj,
+    });
 
     localStorage.setItem('token', authentication_token);
 
     this.props.history.push('/dashboard');
+
+    this.notificationsCreator.CreateSuccessNotification(authentication['message'])
   }
 
   treatFailure(authentication) {
+
     this.props.history.push('/');
 
-    this.setState({ message: authentication['message'] });
-    this.setState( { typeMessage: 'danger' });
+    this.notificationsCreator.CreateDangerNotification(authentication['message'])
+  }
+
+  handleChange(event) {
+
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   }
 
   render() {
@@ -73,8 +93,6 @@ class Auth extends Component {
     return (
 
       <>
-
-        { this.state.message && <Messages type={ this.state.typeMessage } message={ this.state.message } /> }
 
         <div className='row'>
 
@@ -97,12 +115,13 @@ class Auth extends Component {
                   <div className='form-group d-flex justify-content-center py-1'>
 
                     <input type='email'
-                           id='inputEmail'
+                           id='email'
+                           name='email'
                            className='form-control w-75'
                            placeholder='E-mail'
                            required
                            autoFocus
-                           onChange={ event => this.setState({ email: event.target.value }) }
+                           onChange={ this.handleChange }
                     />
 
                   </div>
@@ -110,11 +129,12 @@ class Auth extends Component {
                   <div className='form-group d-flex justify-content-center py-1'>
 
                     <input type='password'
-                           id='inputPassword'
+                           id='password'
+                           name='password'
                            className='form-control w-75'
-                           placeholder='Senha'
+                           placeholder='Digite sua senha'
                            required
-                           onChange={ event => this.setState({ password: event.target.value }) }
+                           onChange={ this.handleChange }
                     />
 
                   </div>

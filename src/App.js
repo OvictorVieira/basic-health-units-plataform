@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactNotifications from 'react-notifications-component';
 
 import './assets/App.scss';
 
@@ -10,6 +11,7 @@ function App() {
 
     <div className='container-fluid'>
 
+      <ReactNotifications />
       <Routes />
 
     </div>
