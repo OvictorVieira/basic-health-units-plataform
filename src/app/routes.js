@@ -1,8 +1,9 @@
 import React from "react";
-import { BrowserRouter, Switch, Route} from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Auth from './pages/auth';
 import Institutes from './pages/institutes';
+import PrivateRoute from './privateRoutes'
 
 function Routes() {
   return (
@@ -11,7 +12,7 @@ function Routes() {
 
         <Route path='/' exact component={ Auth }/>
 
-        <Route path='/institutes' exact component={ Institutes }/>
+        <PrivateRoute path='/institutes' component={ Institutes }/>
 
       </Switch>
     </BrowserRouter>
