@@ -1,10 +1,17 @@
 import React from 'react';
-import './App.css';
+
+import './assets/App.scss';
+
+import Routes from "./app/routes";
 
 function App() {
+
   return (
-    <div className="App">
-        
+
+    <div className='container-fluid'>
+
+      <Routes />
+
     </div>
   );
 }
