@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Dashboard extends Component{
+class Institutes extends Component{
 
   constructor(props) {
     super(props);
@@ -20,4 +20,4 @@ class Dashboard extends Component{
   }
 }
 
-export default Dashboard;
+export default Institutes;

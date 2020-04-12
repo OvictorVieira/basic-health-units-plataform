@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import Auth from './pages/auth';
-import Dashboard from './pages/dashboard';
+import Institutes from './pages/institutes';
 
 function Routes() {
   return (
@@ -11,7 +11,7 @@ function Routes() {
 
         <Route path='/' exact component={ Auth }/>
 
-        <Route path='/dashboard' exact component={ Dashboard }/>
+        <Route path='/institutes' exact component={ Institutes }/>
 
       </Switch>
     </BrowserRouter>

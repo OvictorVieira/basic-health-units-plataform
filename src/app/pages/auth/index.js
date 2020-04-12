@@ -20,7 +20,7 @@ class Auth extends Component {
       password: '',
     };
 
-    this.notificationsCreator = new CreateNotification;
+    this.notificationsCreator = new CreateNotification();
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
@@ -47,9 +47,9 @@ class Auth extends Component {
 
   handleAuthentication(authentication) {
 
-    if(authentication['success']) {
+    if(authentication['success'] && authentication['response'] !== undefined) {
 
-      this.treatSuccess(authentication)
+      this.treatSuccess(authentication['response'])
 
     } else {
 
@@ -69,7 +69,7 @@ class Auth extends Component {
 
     localStorage.setItem('token', authentication_token);
 
-    this.props.history.push('/dashboard');
+    this.props.history.push('/institutes');
 
     this.notificationsCreator.CreateSuccessNotification(authentication['message'])
   }
