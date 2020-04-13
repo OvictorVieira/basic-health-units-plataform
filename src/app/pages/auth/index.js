@@ -3,7 +3,7 @@ import 'react-notifications-component/dist/theme.css';
 
 import Authenticator from "../../services/authentication/Authenticator";
 import CommunicatorBase from "../../services/CommunicatorBase";
-import CreateNotification from '../utils/NotificationsCreator'
+import { createSuccessNotification, createDangerNotification } from '../utils/NotificationsCreator'
 
 import logo from "../../../assets/images/logo-bionexo-green-pool.png";
 
@@ -19,8 +19,6 @@ class Auth extends Component {
       cnpj: '',
       password: '',
     };
-
-    this.notificationsCreator = new CreateNotification();
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
@@ -71,14 +69,14 @@ class Auth extends Component {
 
     this.props.history.push('/institutes');
 
-    this.notificationsCreator.CreateSuccessNotification(authentication['message'])
+    createSuccessNotification(authentication['message'])
   }
 
   treatFailure(authentication) {
 
     this.props.history.push('/');
 
-    this.notificationsCreator.CreateDangerNotification(authentication['message'])
+    createDangerNotification(authentication['message'])
   }
 
   handleChange(event) {
