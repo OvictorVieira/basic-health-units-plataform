@@ -3,7 +3,7 @@ import 'react-notifications-component/dist/theme.css';
 
 import Authenticator from "../../services/authentication/Authenticator";
 import CommunicatorBase from "../../services/CommunicatorBase";
-import CreateNotification from '../utils/NotificationsCreator'
+import CreateNotification from '../../components/notifications/NotificationsCreator'
 
 import logo from "../../../assets/images/logo-bionexo-green-pool.png";
 

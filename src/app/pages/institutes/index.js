@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Navbar from '../utils/navbar/Navbar';
-import WrappedMap from '../utils/maps/Maps'
+import Navbar from '../../components/navbar/Navbar';
+import WrappedMap from '../../components/maps/Maps'
 
 class Institutes extends Component{
 
