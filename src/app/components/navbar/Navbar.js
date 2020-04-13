@@ -3,6 +3,8 @@ import './Navbar.scss';
 
 import logo from '../../../assets/images/logo-bionexo-white.png';
 import userImage from '../../../assets/images/user.jpg';
+import searchIcon from '../../../assets/images/search-icon.png';
+import searchIconWhite from '../../../assets/images/search-icon-white.png';
 
 class Navbar extends Component {
 
@@ -10,16 +12,25 @@ class Navbar extends Component {
     super(props);
 
     this.state = {
-      active: false,
+      showSidebar: false,
+      showSearchBox: false,
     };
 
-    this.toggleSidebar = this.toggleSidebar.bind(this)
+    this.showSidebar = this.showSidebar.bind(this)
+    this.showSearchBox = this.showSearchBox.bind(this)
   }
 
-  toggleSidebar() {
+  showSidebar() {
 
     this.setState({
-      active: !this.state.active,
+      showSidebar: !this.state.showSidebar,
+    })
+  }
+
+  showSearchBox() {
+
+    this.setState({
+      showSearchBox: !this.state.showSearchBox,
     })
   }
 
@@ -35,16 +46,31 @@ class Navbar extends Component {
             <div
               className='navbar-header d-flex justify-content-between align-items-center w-100'>
 
-              <button type='button'
-                      id='sidebarCollapse'
-                      onClick={ this.toggleSidebar }
-                      className={ this.state.active ? 'navbar-btn active ' : 'navbar-btn' }>
+              <div className='d-flex flex-row justify-content-center'>
 
-                <span/>
-                <span/>
-                <span/>
+                <div className='d-flex flex-column pr-3 justify-content-center '>
 
-              </button>
+                  <button type='button'
+                          id='sidebarCollapse'
+                          onClick={ this.showSidebar }
+                          className={ this.state.showSidebar ? 'navbar-btn active ' : 'navbar-btn' }>
+
+                    <span/>
+                    <span/>
+                    <span/>
+
+                  </button>
+                </div>
+
+                <div id='search'
+                     onClick={ this.showSearchBox }
+                     className='d-flex flex-column justify-content-center pl-3'>
+
+                  <img src={ searchIcon } className='z-depth-0 search'
+                       alt='Botão de pesquisa' height='25' />
+                </div>
+
+              </div>
 
               <div className='d-flex flex-row justify-content-center'>
 
@@ -53,14 +79,14 @@ class Navbar extends Component {
               </div>
 
               <div className='d-flex flex-row justify-content-center'>
-                <div className='d-flex flex-column pr-4'>
+                <div id='companyName' className='d-flex flex-column pr-3 justify-content-center '>
 
                   <span className='font-weight-bold text-white'>Nome da Empresa</span>
 
                   <span className='font-weight-bold text-secondary'>Cnpj</span>
                 </div>
 
-                <div className='d-flex flex-row justify-content-center'>
+                <div className='d-flex flex-column justify-content-center pl-3'>
 
                   <img src={ userImage } className='rounded-circle z-depth-0'
                        alt='Avatar do usuário' height='35' />
@@ -75,7 +101,7 @@ class Navbar extends Component {
         </nav>
 
         <nav id='sidebar'
-             className={ this.state.active ? 'flex-column justify-content-between active' : '' }>
+             className={ this.state.showSidebar ? 'flex-column justify-content-between active' : '' }>
 
           <div className='sidebar-header'>
             <h3>Bem vindo!</h3>
@@ -90,6 +116,18 @@ class Navbar extends Component {
           </div>
 
         </nav>
+
+        <div className={ this.state.showSearchBox ? 'input-group mb-3 search-box' : 'd-none' }>
+
+          <div className='input-group-prepend'>
+            <button className='btn btn-outline-secondary btn-search' type='button'>
+              <img src={ searchIconWhite } className='z-depth-0 search'
+                   alt='Pesquisar' height='18' />
+            </button>
+          </div>
+
+          <input type='text' className='form-control btn-search pl-0' placeholder='Busca' aria-label='' aria-describedby='basic-addon1' />
+        </div>
       </>
     )
   }

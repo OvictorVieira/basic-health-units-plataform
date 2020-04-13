@@ -2,20 +2,53 @@
 
 .navbar-main {
   background-color: $primary-color;
-  height: 3.75em;
+  padding: 0 1em;
 }
 
-.custom-toggler {
+#companyName {
+  border-right: 0.13em solid $white;
+  height: 5em;
+}
 
-  .navbar-toggler-icon {
+#search {
+  border-left: 0.13em solid $white;
+  height: 5em;
+}
 
-    background-image: url(../../../assets/images/menu-icon.png);
+.search {
+  cursor: pointer;
+}
+
+.search-box {
+  width: 100vw - 80vw;
+  padding: 1em 1.675em;
+  position: absolute;
+  z-index: 100;
+  background-color: $tertiary-color;
+  margin: 2em 2.675em;
+}
+
+.btn-search {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  background: transparent;
+  border-color: $white;
+
+  &:focus {
+    border-color: $white;
+    color: $white;
+    outline: 0;
+    background: transparent;
+    box-shadow: none;
   }
 }
 
 #sidebarCollapse {
-  width: 40px;
-  height: 40px;
+  width: 3.75em;
+  height: 3.75em;
   background: transparent;
   border-color: transparent;
   cursor: pointer;
@@ -29,10 +62,10 @@
     height: 2px;
     transform: none;
     opacity: 1;
-    margin: 5px auto;
+    margin: 0.5em auto;
     display: block;
     background: $white;
-    transition-delay: 0.2s;
+    transition-delay: 1ms;
     transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
   }
 
@@ -42,7 +75,7 @@
   span {
     margin: 0 auto;
     transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
-    transition-delay: 0.2s;
+    transition-delay: 1ms;
 
     &:first-of-type {
       transform: rotate(45deg) translate(2px, 2px);
