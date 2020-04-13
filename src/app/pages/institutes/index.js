@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
+import Navbar from '../utils/navbar/Navbar';
 import WrappedMap from '../utils/maps/Maps'
-=======
->>>>>>> 8978b6be136f72cd89c1742d215ebdffe0100167
 
 class Institutes extends Component{
 
@@ -17,8 +15,10 @@ class Institutes extends Component{
   render() {
 
     return (
-<<<<<<< HEAD
       <div className='google-map'>
+
+        <Navbar />
+
         <WrappedMap
 
           // googleMapURL={`${ process.env.GOOGLE_MAP_URL.concat(process.env.GOOGLE_API_KEY) }`}
@@ -31,11 +31,6 @@ class Institutes extends Component{
           mapElement={ <div className='h-100' /> }
         />
       </div>
-=======
-      <>
-        <h1>Hello User</h1>
-      </>
->>>>>>> 8978b6be136f72cd89c1742d215ebdffe0100167
     );
   }
 }
