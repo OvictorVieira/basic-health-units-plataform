@@ -66,7 +66,7 @@ class Navbar extends Component {
                      onClick={ this.showSearchBox }
                      className='d-flex flex-column justify-content-center pl-3'>
 
-                  <img src={ searchIcon } className='z-depth-0 search'
+                  <img src={ this.state.showSearchBox ? searchIconWhite : searchIcon } className='z-depth-0 search'
                        alt='Botão de pesquisa' height='25' />
                 </div>
 
