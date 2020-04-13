@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import WrappedMap from '../utils/maps/Maps'
+=======
+>>>>>>> 8978b6be136f72cd89c1742d215ebdffe0100167
 
 class Institutes extends Component{
 
@@ -14,6 +17,7 @@ class Institutes extends Component{
   render() {
 
     return (
+<<<<<<< HEAD
       <div className='google-map'>
         <WrappedMap
 
@@ -27,6 +31,11 @@ class Institutes extends Component{
           mapElement={ <div className='h-100' /> }
         />
       </div>
+=======
+      <>
+        <h1>Hello User</h1>
+      </>
+>>>>>>> 8978b6be136f72cd89c1742d215ebdffe0100167
     );
   }
 }
