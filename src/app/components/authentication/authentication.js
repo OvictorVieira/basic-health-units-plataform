@@ -5,9 +5,6 @@ import {
   retrieveCookie
 } from "../cookies/cookies";
 
-import { createDangerNotification } from "../notifications/notifications";
-
-
 export const isAuthenticated = () => {
 
   let token = retrieveCookie(getConstantCompanyToken());
