@@ -3,9 +3,11 @@ import 'react-notifications-component/dist/theme.css';
 
 import Authenticator from "../../services/authentication/Authenticator";
 import CommunicatorBase from "../../services/CommunicatorBase";
-import { createSuccessNotification, createDangerNotification } from '../utils/NotificationsCreator'
+import { createSuccessNotification, createDangerNotification } from '../utils/NotificationsCreator';
+import { encrypt } from "../utils/encrypt";
 
 import logo from "../../../assets/images/logo-bionexo-green-pool.png";
+import { createCookie, getConstantCompanyName, getConstantCompanyEmail, getConstantCompanyCnpj, getConstantCompanyToken } from "../utils/cookies";
 
 class Auth extends Component {
 
@@ -62,14 +64,22 @@ class Auth extends Component {
     this.setState({
       name,
       email,
-      cnpj,
+      cnpj
     });
 
-    localStorage.setItem('token', authentication_token);
+    this.saveCookies(authentication_token);
 
     this.props.history.push('/institutes');
 
     createSuccessNotification(authentication['message'])
+  }
+
+  saveCookies(authentication_token) {
+
+    createCookie(getConstantCompanyName(), encrypt(this.state.name));
+    createCookie(getConstantCompanyEmail(), encrypt(this.state.email));
+    createCookie(getConstantCompanyCnpj(), encrypt(this.state.cnpj));
+    createCookie(getConstantCompanyToken(), encrypt(authentication_token));
   }
 
   treatFailure(authentication) {
