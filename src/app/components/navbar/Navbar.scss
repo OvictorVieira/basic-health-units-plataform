@@ -1,0 +1,163 @@
+@import '../../../assets/shared/Color';
+
+.navbar-main {
+  background-color: $primary-color;
+  padding: 0 1em;
+}
+
+#companyName {
+  border-right: 0.13em solid $white;
+  height: 5em;
+}
+
+#search {
+  border-left: 0.13em solid $white;
+  height: 5em;
+}
+
+.search {
+  cursor: pointer;
+}
+
+.search-box {
+  width: 100vw - 80vw;
+  padding: 1em 1.675em;
+  position: absolute;
+  z-index: 100;
+  background-color: $tertiary-color;
+  margin: 2em 2.675em;
+}
+
+.btn-search {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  background: transparent;
+  border-color: $white;
+
+  &:focus {
+    border-color: $white;
+    color: $white;
+    outline: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+#sidebarCollapse {
+  width: 3.75em;
+  height: 3.75em;
+  background: transparent;
+  border-color: transparent;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  span {
+    width: 100%;
+    height: 2px;
+    transform: none;
+    opacity: 1;
+    margin: 0.5em auto;
+    display: block;
+    background: $white;
+    transition-delay: 1ms;
+    transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+  }
+
+}
+
+#sidebarCollapse.active {
+  span {
+    margin: 0 auto;
+    transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+    transition-delay: 1ms;
+
+    &:first-of-type {
+      transform: rotate(45deg) translate(2px, 2px);
+    }
+
+    &:nth-of-type(2) {
+      opacity: 0;
+    }
+
+    &:last-of-type {
+      transform: rotate(-45deg) translate(1px, -1px);
+    }
+  }
+}
+
+#sidebar {
+  min-width: 100vw - 80vw;
+  max-width: 100vw - 80vw;
+  min-height: 100vh;
+  max-height: 100vh;
+  position: absolute;
+  z-index: 100;
+  background: $tertiary-color;
+  display: none !important;
+  color: $white;
+  transform-origin: left;
+  margin-left: -250px;
+}
+
+#sidebar.active {
+  margin-left: 0;
+  display: flex !important;
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: $tertiary-color;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -250px;
+    transform: rotateY(90deg);
+
+    .active {
+      margin-left: 0;
+      transform: none;
+    }
+  }
+
+  #sidebarCollapse {
+
+    span {
+
+      & {
+        :first-of-type, :nth-of-type(2), :last-of-type  {
+          transform: none;
+          opacity: 1;
+          margin: 5px auto;
+        }
+      }
+    }
+  }
+
+  #sidebarCollapse.active span {
+    margin: 0 auto;
+
+    span {
+
+      &:first-of-type {
+        transform: rotate(45deg) translate(2px, 2px);
+      }
+
+      &:nth-of-type(2) {
+        opacity: 0;
+      }
+
+      &:last-of-type {
+        transform: rotate(-45deg) translate(1px, -1px);
+      }
+    }
+  }
+
+}
+

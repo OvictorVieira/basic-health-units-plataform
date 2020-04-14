@@ -34,3 +34,17 @@ body, input, button {
     border-color: $primary-color;
   }
 }
+
+.btn-outline-info {
+  color: $white;
+  border-color: $primary-color;
+
+  &:hover {
+    background: linear-gradient(60deg, $primary-color 10%, $secondary-color 90%);
+    border-color: $primary-color;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.1rem rgba($secondary-color, 0.5);
+  }
+}

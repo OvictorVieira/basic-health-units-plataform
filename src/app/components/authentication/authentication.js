@@ -3,7 +3,7 @@ import {
   getConstantCompanyName,
   getConstantCompanyToken,
   retrieveCookie
-} from "../utils/cookies";
+} from "../cookies/cookies";
 
 export const isAuthenticated = () => {
 
@@ -12,6 +12,5 @@ export const isAuthenticated = () => {
   let name = retrieveCookie(getConstantCompanyName());
   let email = retrieveCookie(getConstantCompanyEmail());
 
-
-  return (token && cnpj && name && email);
+  return token && cnpj && name && email;
 };

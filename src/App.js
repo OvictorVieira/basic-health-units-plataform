@@ -9,12 +9,12 @@ function App() {
 
   return (
 
-    <div className='container-fluid'>
+    <>
 
       <ReactNotifications />
       <Routes />
 
-    </div>
+    </>
   );
 }
 
