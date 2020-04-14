@@ -1,6 +1,6 @@
 import api from '../services/Api'
 
-import ResponseFormatter from "./utils/ResponseFormatter";
+import { request_success, request_failed } from "./utils/ResponseFormatter";
 
 class CommunicatorBase {
 
@@ -11,17 +11,17 @@ class CommunicatorBase {
 
       const response = await api.post(endPoint, body, mountedHeader);
 
-      return ResponseFormatter.request_success(response.data);
+      return request_success(response.data);
 
     } catch (error) {
 
       if (error.response) {
 
-        return ResponseFormatter.request_failed(error.response.data['message']);
+        return request_failed(error.response.data['message']);
 
       } else {
 
-        return ResponseFormatter.request_failed();
+        return request_failed();
       }
     }
   }
