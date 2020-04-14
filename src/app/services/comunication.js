@@ -24,6 +24,28 @@ async function post(endPoint, body, headers = {}) {
   }
 }
 
+async function get(endPoint, headers = {}) {
+
+  try {
+    let mountedHeader = _mountHeaderBase(headers);
+
+    const response = await api.get(endPoint, mountedHeader);
+
+    return request_success(response.data);
+
+  } catch (error) {
+
+    if (error.response) {
+
+      return request_failed(error.response.data['message']);
+
+    } else {
+
+      return request_failed();
+    }
+  }
+}
+
 function _mountHeaderBase(headers) {
 
   return {
@@ -31,4 +53,4 @@ function _mountHeaderBase(headers) {
   }
 }
 
-export { post };
+export { post, get };

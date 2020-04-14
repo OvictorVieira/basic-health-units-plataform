@@ -14,6 +14,8 @@ class Navbar extends Component {
     this.state = {
       showSidebar: false,
       showSearchBox: false,
+      companyName: props.companyName,
+      companyCnpj: props.companyCnpj
     };
 
     this.showSidebar = this.showSidebar.bind(this)
@@ -81,9 +83,9 @@ class Navbar extends Component {
               <div className='d-flex flex-row justify-content-center'>
                 <div id='companyName' className='d-flex flex-column pr-3 justify-content-center '>
 
-                  <span className='font-weight-bold text-white'>Nome da Empresa</span>
+                  <span className='font-weight-bold text-white'> { this.state.companyName } </span>
 
-                  <span className='font-weight-bold text-secondary'>Cnpj</span>
+                  <span className='font-weight-bold text-secondary'>{ this.state.companyCnpj }</span>
                 </div>
 
                 <div className='d-flex flex-column justify-content-center pl-3'>
