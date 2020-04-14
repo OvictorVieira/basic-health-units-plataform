@@ -6,7 +6,7 @@ const getInstitutesByLocation = (latitude, longitude) => {
 
   const endPoint = `/api/v1/find_ubs?query=${latitude},${longitude}`;
 
-  let header = _mountHeaders;
+  let header = _mountHeaders();
 
   return get(endPoint, header);
 }
@@ -14,10 +14,8 @@ const getInstitutesByLocation = (latitude, longitude) => {
 function _mountHeaders() {
 
   return {
-    "user": {
-      email: decrypt(retrieveCookie(getConstantCompanyEmail())),
-      authentication_token: decrypt(retrieveCookie(getConstantCompanyToken()))
-    }
+    'X-User-Email': decrypt(retrieveCookie(getConstantCompanyEmail())),
+    'X-User-Token': decrypt(retrieveCookie(getConstantCompanyToken()))
   };
 }
 

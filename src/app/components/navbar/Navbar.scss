@@ -15,19 +15,6 @@
   height: 5em;
 }
 
-.search {
-  cursor: pointer;
-}
-
-.search-box {
-  width: 100vw - 80vw;
-  padding: 1em 1.675em;
-  position: absolute;
-  z-index: 100;
-  background-color: $tertiary-color;
-  margin: 2em 2.675em;
-}
-
 .btn-search {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;

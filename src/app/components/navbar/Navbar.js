@@ -13,26 +13,17 @@ class Navbar extends Component {
 
     this.state = {
       showSidebar: false,
-      showSearchBox: false,
       companyName: props.companyName,
       companyCnpj: props.companyCnpj
     };
 
     this.showSidebar = this.showSidebar.bind(this)
-    this.showSearchBox = this.showSearchBox.bind(this)
   }
 
   showSidebar() {
 
     this.setState({
       showSidebar: !this.state.showSidebar,
-    })
-  }
-
-  showSearchBox() {
-
-    this.setState({
-      showSearchBox: !this.state.showSearchBox,
     })
   }
 
@@ -65,10 +56,9 @@ class Navbar extends Component {
                 </div>
 
                 <div id='search'
-                     onClick={ this.showSearchBox }
                      className='d-flex flex-column justify-content-center pl-3'>
 
-                  <img src={ this.state.showSearchBox ? searchIconWhite : searchIcon } className='z-depth-0 search'
+                  <img src={ searchIcon } className='z-depth-0 search'
                        alt='Botão de pesquisa' height='25' />
                 </div>
 
@@ -118,18 +108,6 @@ class Navbar extends Component {
           </div>
 
         </nav>
-
-        <div className={ this.state.showSearchBox ? 'input-group mb-3 search-box' : 'd-none' }>
-
-          <div className='input-group-prepend'>
-            <button className='btn btn-outline-secondary btn-search' type='button'>
-              <img src={ searchIconWhite } className='z-depth-0 search'
-                   alt='Pesquisar' height='18' />
-            </button>
-          </div>
-
-          <input type='text' className='form-control btn-search pl-0' placeholder='Busca' aria-label='' aria-describedby='basic-addon1' />
-        </div>
       </>
     )
   }

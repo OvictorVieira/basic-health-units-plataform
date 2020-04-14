@@ -1,0 +1,28 @@
+@import '../../../../assets/shared/Color';
+
+.card-link {
+  color: $tertiary-color;
+
+  &:hover {
+    color: $tertiary-color
+  }
+
+  .card {
+
+    .card-body {
+
+      .card-title {
+
+        color: $primary-color;
+        text-overflow: initial;
+      }
+    }
+  }
+}
+
+.card-institutes {
+  width: 20vw;
+  position: absolute;
+  z-index: 100;
+  border-radius: 0;
+}

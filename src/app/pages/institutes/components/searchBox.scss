@@ -1,0 +1,13 @@
+@import '../../../../assets/shared/Color';
+
+.container-items {
+  width: 100vw - 80vw;
+  position: absolute;
+  z-index: 100;
+  margin: 2em 2.675em;
+}
+
+.search-box {
+  padding: 1em 1.675em;
+  background-color: $tertiary-color;
+}
