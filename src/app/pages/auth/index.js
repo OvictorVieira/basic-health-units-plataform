@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import 'react-notifications-component/dist/theme.css';
 
-import Authenticator from "../../services/authentication/Authenticator";
-import CommunicatorBase from "../../services/CommunicatorBase";
+import { authentication } from "../../services/requests/authentication";
 import { createSuccessNotification, createDangerNotification } from '../../components/notifications/notifications';
 import { encrypt } from "../../components/encrypt/encrypt";
 
@@ -40,12 +39,7 @@ class Auth extends Component {
 
     event.preventDefault();
 
-    const communicatorBase = new CommunicatorBase();
-
-    const authenticator = new Authenticator(communicatorBase);
-
-    authenticator
-      .authenticate(this.state.email, this.state.password)
+    authentication(this.state.email, this.state.password)
       .then(authentication => {
 
       this.handleAuthentication(authentication);
