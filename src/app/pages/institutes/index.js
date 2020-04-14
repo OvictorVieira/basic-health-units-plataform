@@ -91,11 +91,11 @@ class Institutes extends Component{
 
           googleMapURL={`${ process.env.REACT_APP_GOOGLE_MAP_URL.concat(process.env.REACT_APP_GOOGLE_API_KEY) }`}
 
-          loadingElement={ <div className='h-100' /> }
+          loadingElement={ <div style={{ height: '100vh' }} /> }
 
-          containerElement={ <div className='h-100' /> }
+          containerElement={ <div style={{ height: '100vh' }} /> }
 
-          mapElement={ <div className='h-100' /> }
+          mapElement={ <div style={{ height: '100vh' }} /> }
         />
       </div>
     );

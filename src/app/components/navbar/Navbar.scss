@@ -3,6 +3,9 @@
 .navbar-main {
   background-color: $primary-color;
   padding: 0 1em;
+  position: fixed;
+  width: 100vw;
+  z-index: 101;
 }
 
 #companyName {
@@ -30,6 +33,18 @@
     outline: 0;
     background: transparent;
     box-shadow: none;
+  }
+
+  &:hover {
+    color: $white;
+    background-color: transparent;
+    border-color: $white;
+  }
+
+  &:active {
+    color: $white!important;
+    background-color: transparent!important;
+    border-bottom-color: $white!important;
   }
 }
 
@@ -97,9 +112,12 @@
   display: flex !important;
 }
 
-#sidebar .sidebar-header {
-  padding: 20px;
-  background: $tertiary-color;
+#sidebar {
+  .sidebar-header {
+    padding: 20px;
+    background: $tertiary-color;
+    margin-top: 6em;
+  }
 }
 
 @media (max-width: 768px) {

@@ -1,10 +1,11 @@
 @import '../../../../assets/shared/Color';
 
 .container-items {
-  width: 100vw - 80vw;
-  position: absolute;
+  width: 20vw;
+  height: 100vh;
+  position: fixed;
   z-index: 100;
-  margin: 2em 2.675em;
+  margin: 8em 2.675em;
 }
 
 .search-box {
