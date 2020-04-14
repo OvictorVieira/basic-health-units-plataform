@@ -1,4 +1,17 @@
+import {
+  getConstantCompanyCnpj, getConstantCompanyEmail,
+  getConstantCompanyName,
+  getConstantCompanyToken,
+  retrieveCookie
+} from "../utils/cookies";
+
 export const isAuthenticated = () => {
 
-  return localStorage.getItem('token') && localStorage.getItem('token') !== undefined;
+  let token = retrieveCookie(getConstantCompanyToken());
+  let cnpj = retrieveCookie(getConstantCompanyCnpj());
+  let name = retrieveCookie(getConstantCompanyName());
+  let email = retrieveCookie(getConstantCompanyEmail());
+
+
+  return (token && cnpj && name && email);
 };

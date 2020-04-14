@@ -3,9 +3,11 @@ import 'react-notifications-component/dist/theme.css';
 
 import Authenticator from "../../services/authentication/Authenticator";
 import CommunicatorBase from "../../services/CommunicatorBase";
-import CreateNotification from '../utils/NotificationsCreator'
+import { createSuccessNotification, createDangerNotification } from '../utils/NotificationsCreator';
+import { encrypt } from "../utils/encrypt";
 
 import logo from "../../../assets/images/logo-bionexo-green-pool.png";
+import { createCookie, getConstantCompanyName, getConstantCompanyEmail, getConstantCompanyCnpj, getConstantCompanyToken } from "../utils/cookies";
 
 class Auth extends Component {
 
@@ -19,8 +21,6 @@ class Auth extends Component {
       cnpj: '',
       password: '',
     };
-
-    this.notificationsCreator = new CreateNotification();
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
@@ -64,21 +64,29 @@ class Auth extends Component {
     this.setState({
       name,
       email,
-      cnpj,
+      cnpj
     });
 
-    localStorage.setItem('token', authentication_token);
+    this.saveCookies(authentication_token);
 
     this.props.history.push('/institutes');
 
-    this.notificationsCreator.CreateSuccessNotification(authentication['message'])
+    createSuccessNotification(authentication['message'])
+  }
+
+  saveCookies(authentication_token) {
+
+    createCookie(getConstantCompanyName(), encrypt(this.state.name));
+    createCookie(getConstantCompanyEmail(), encrypt(this.state.email));
+    createCookie(getConstantCompanyCnpj(), encrypt(this.state.cnpj));
+    createCookie(getConstantCompanyToken(), encrypt(authentication_token));
   }
 
   treatFailure(authentication) {
 
     this.props.history.push('/');
 
-    this.notificationsCreator.CreateDangerNotification(authentication['message'])
+    createDangerNotification(authentication['message'])
   }
 
   handleChange(event) {
