@@ -4,7 +4,6 @@ import './Navbar.scss';
 import logo from '../../../assets/images/logo-bionexo-white.png';
 import userImage from '../../../assets/images/user.jpg';
 import searchIcon from '../../../assets/images/search-icon.png';
-import searchIconWhite from '../../../assets/images/search-icon-white.png';
 
 class Navbar extends Component {
 

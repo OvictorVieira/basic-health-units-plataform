@@ -1,36 +1,30 @@
-import React, { Component } from "react";
+import React from "react";
 import './Cards.scss'
 
-class Cards extends Component {
+function Cards(props) {
 
-  constructor(props) {
-    super(props);
+  return (
+    <div className='institutes-box'>
+      {
+        props.institutes.map(institute => (
 
-    this.state = {
-      institutes: props.institutes
-    }
-  }
+          <a href={ '#'.concat(institute.id) } className='card-link'>
+            <div className="card card-institutes">
+              <div className="card-body">
+                <h5 className="card-title mb-1">{ institute.id }. { institute.name }</h5>
 
-  render() {
-    return (
-      this.state.institutes.map(institute => (
+                <p className="card-text">{ institute.address } - { institute.city }</p>
 
-        <a href={ '#'.concat(institute.id) } className='card-link'>
-          <div className="card card-institutes">
-            <div className="card-body">
-              <h5 className="card-title mb-1">{ institute.id }. { institute.name }</h5>
+                <snap className="font-weight-bold">Telefone</snap>
 
-              <p className="card-text">{ institute.address } - { institute.city }</p>
-
-              <snap className="font-weight-bold">Telefone</snap>
-
-              <p className="card-text">{ institute.phone }</p>
+                <p className="card-text">{ institute.phone }</p>
+              </div>
             </div>
-          </div>
-        </a>
-      ))
-    )
-  }
+          </a>
+        ))
+      }
+    </div>
+  )
 }
 
 export default Cards;
