@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import 'react-notifications-component/dist/theme.css';
 
-import Authenticator from "../../services/authentication/Authenticator";
-import CommunicatorBase from "../../services/CommunicatorBase";
-import { createSuccessNotification, createDangerNotification } from '../utils/NotificationsCreator';
-import { encrypt } from "../utils/encrypt";
+import { authentication } from "../../services/requests/authentication";
+import { createSuccessNotification, createDangerNotification } from '../../components/notifications/notifications';
+import { encrypt } from "../../components/encrypt/encrypt";
 
 import logo from "../../../assets/images/logo-bionexo-green-pool.png";
-import { createCookie, getConstantCompanyName, getConstantCompanyEmail, getConstantCompanyCnpj, getConstantCompanyToken } from "../utils/cookies";
+import {
+  createCookie,
+  getConstantCompanyName,
+  getConstantCompanyEmail,
+  getConstantCompanyCnpj,
+  getConstantCompanyToken
+} from "../../components/cookies/cookies";
 
 class Auth extends Component {
 
@@ -27,18 +32,14 @@ class Auth extends Component {
     this.treatSuccess = this.treatSuccess.bind(this);
     this.treatFailure = this.treatFailure.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.saveCookies = this.saveCookies.bind(this);
   }
 
   handleSubmit(event) {
 
     event.preventDefault();
 
-    const communicatorBase = new CommunicatorBase();
-
-    const authenticator = new Authenticator(communicatorBase);
-
-    authenticator
-      .authenticate(this.state.email, this.state.password)
+    authentication(this.state.email, this.state.password)
       .then(authentication => {
 
       this.handleAuthentication(authentication);
