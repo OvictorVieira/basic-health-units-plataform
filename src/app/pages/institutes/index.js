@@ -9,7 +9,7 @@ import WrappedMap from '../../components/maps/Maps'
 
 import { decrypt } from "../../components/encrypt/encrypt";
 import { getInstitutesByLocation } from "../../services/requests/institutes";
-import {createDangerNotification, createWarningNotification} from "../../components/notifications/notifications";
+import { createDangerNotification, createWarningNotification } from "../../components/notifications/notifications";
 import SearchBox from "./components/searchBox";
 import './components/searchBox.scss'
 
@@ -101,6 +101,8 @@ class Institutes extends Component{
           containerElement={ <div style={{ height: '100vh' }} /> }
 
           mapElement={ <div style={{ height: '100vh' }} /> }
+
+          institutes={ this.state.institutes }
         />
       </div>
     );
