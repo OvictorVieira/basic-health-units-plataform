@@ -13,7 +13,7 @@ function SearchBox() {
         </button>
       </div>
 
-      <input type='text' className='form-control btn-search pl-0' placeholder='Busca' aria-label='' aria-describedby='basic-addon1' />
+      <input type='text' className='form-control btn-search pl-0' placeholder='Latitude, Longitude' aria-label='' aria-describedby='basic-addon1' />
     </div>
   );
 }

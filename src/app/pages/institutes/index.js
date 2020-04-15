@@ -9,7 +9,7 @@ import WrappedMap from '../../components/maps/Maps'
 
 import { decrypt } from "../../components/encrypt/encrypt";
 import { getInstitutesByLocation } from "../../services/requests/institutes";
-import { createDangerNotification } from "../../components/notifications/notifications";
+import {createDangerNotification, createWarningNotification} from "../../components/notifications/notifications";
 import SearchBox from "./components/searchBox";
 import './components/searchBox.scss'
 
@@ -21,10 +21,6 @@ class Institutes extends Component{
     this.state = {
       name: decrypt(retrieveCookie(getConstantCompanyName())),
       cnpj: decrypt(retrieveCookie(getConstantCompanyCnpj())),
-      geolocation: {
-        latitude: -22.21966, // buscar do navegador
-        longitude: -49.97872 // buscar do navegador
-      },
       institutes: [],
       showSearchBox: false
     }
@@ -34,11 +30,20 @@ class Institutes extends Component{
 
   componentDidMount() {
 
-    getInstitutesByLocation(this.state.geolocation.latitude, this.state.geolocation.longitude)
-      .then(response => {
+    if (navigator.geolocation) {
 
-        this.handleResponse(response);
+      navigator.geolocation.getCurrentPosition(position => {
+
+        getInstitutesByLocation(position.coords.latitude, position.coords.longitude)
+          .then(response => {
+
+            this.handleResponse(response);
+          })
+
       });
+    } else {
+      createWarningNotification('Use o campo de busca passando a sua localização...');
+    }
   }
 
   handleResponse(response) {
