@@ -3,6 +3,9 @@
 .navbar-main {
   background-color: $primary-color;
   padding: 0 1em;
+  position: fixed;
+  width: 100vw;
+  z-index: 101;
 }
 
 #companyName {
@@ -13,19 +16,6 @@
 #search {
   border-left: 0.13em solid $white;
   height: 5em;
-}
-
-.search {
-  cursor: pointer;
-}
-
-.search-box {
-  width: 100vw - 80vw;
-  padding: 1em 1.675em;
-  position: absolute;
-  z-index: 100;
-  background-color: $tertiary-color;
-  margin: 2em 2.675em;
 }
 
 .btn-search {
@@ -43,6 +33,18 @@
     outline: 0;
     background: transparent;
     box-shadow: none;
+  }
+
+  &:hover {
+    color: $white;
+    background-color: transparent;
+    border-color: $white;
+  }
+
+  &:active {
+    color: $white!important;
+    background-color: transparent!important;
+    border-bottom-color: $white!important;
   }
 }
 
@@ -110,9 +112,12 @@
   display: flex !important;
 }
 
-#sidebar .sidebar-header {
-  padding: 20px;
-  background: $tertiary-color;
+#sidebar {
+  .sidebar-header {
+    padding: 20px;
+    background: $tertiary-color;
+    margin-top: 6em;
+  }
 }
 
 @media (max-width: 768px) {

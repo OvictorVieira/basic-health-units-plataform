@@ -1,20 +1,22 @@
-import CommunicatorBase from "../comunication";
+import { get } from "../comunication";
+import {getConstantCompanyEmail, getConstantCompanyToken, retrieveCookie} from "../../components/cookies/cookies";
+import { decrypt } from "../../components/encrypt/encrypt";
 
-export const findInstitutes = (latitude, longitude) => {
+const getInstitutesByLocation = (latitude, longitude) => {
 
-  const endPoint = '/api/v1/find_ubs';
+  const endPoint = `/api/v1/find_ubs?query=${latitude},${longitude}`;
 
-  let body = _mountBody(latitude, longitude);
+  let header = _mountHeaders();
 
-  return CommunicatorBase.post(endPoint, body);
+  return get(endPoint, header);
 }
 
-function _mountBody(email, password) {
+function _mountHeaders() {
 
   return {
-    "user": {
-      email,
-      password
-    }
+    'X-User-Email': decrypt(retrieveCookie(getConstantCompanyEmail())),
+    'X-User-Token': decrypt(retrieveCookie(getConstantCompanyToken()))
   };
 }
+
+export { getInstitutesByLocation }
