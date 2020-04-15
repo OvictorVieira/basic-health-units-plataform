@@ -1,5 +1,7 @@
 # Basic Health Units Plataform
 
+Fron-end platform written in ReactJs to consume data from [Basic Health Units API](https://gitlab.com/victor.h.souza.vieira/basic-health-units).
+
 #### Preparing the Development Environment
 
 To install the Development Environment, access the [Docker Readme](docker/README.md) and follow the instructions.
