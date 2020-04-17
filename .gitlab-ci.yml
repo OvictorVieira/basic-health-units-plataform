@@ -10,6 +10,7 @@ stages:
 build:
   stage: build
   when: manual
+  allow_failure: false
   artifacts:
     paths:
       - dist/
@@ -25,7 +26,7 @@ build:
 production:
   type: deploy
   environment: production
-  allow_failure: true
+  allow_failure: false
   stage: production
   image: ruby:latest
   script:
@@ -39,3 +40,4 @@ production:
     - deploy
   only:
     - tags
+    - branches
