@@ -40,5 +40,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "Fron-end platform written in ReactJs to consume data from [Basic Health Units API](https://gitlab.com/victor.h.souza.vieira/basic-health-units).",
+  "main": "index.js",
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/victor.h.souza.vieira/basic-health-units-plataform.git"
+  },
+  "author": "Victor Hugo Vieira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/victor.h.souza.vieira/basic-health-units-plataform/issues"
+  },
+  "homepage": "https://gitlab.com/victor.h.souza.vieira/basic-health-units-plataform#README"
 }
