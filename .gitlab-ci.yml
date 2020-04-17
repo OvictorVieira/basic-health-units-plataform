@@ -1,0 +1,21 @@
+image: node:lts-slim
+
+stages:
+  - production
+
+production:
+  type: deploy
+  environment: production
+  allow_failure: false
+  stage: production
+  image: ruby:latest
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_PRODUCTION_API_KEY --skip_cleanup
+  tags:
+    - deploy
+  only:
+    - tags
+    - branches

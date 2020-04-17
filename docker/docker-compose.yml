@@ -2,7 +2,7 @@ version: "3"
 services:
   frontend:
     tty: true
-    command: bash -c "npm install && npm start"
+    command: bash -c "npm install && npm start_dev"
     container_name: basic-health-units-plataform
     build: ./
     ports:

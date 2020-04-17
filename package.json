@@ -9,19 +9,23 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "crypto-js": "^4.0.0",
+    "jquery": "^3.5.0",
     "js-cookie": "^2.2.1",
     "node-sass": "^4.13.1",
+    "popper": "^1.0.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
     "react-dom": "^16.13.1",
     "react-google-maps": "^9.4.5",
     "react-notifications-component": "^2.4.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "webpack": "^4.42.1"
   },
   "scripts": {
-    "start": "PORT=8000 react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts start",
+    "start_dev": "PORT=8000 react-scripts start",
+    "build": "webpack --config webpack.config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -39,5 +43,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "Fron-end platform written in ReactJs to consume data from [Basic Health Units API](https://gitlab.com/victor.h.souza.vieira/basic-health-units).",
+  "main": "index.js",
+  "devDependencies": {
+    "webpack-cli": "^3.3.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/victor.h.souza.vieira/basic-health-units-plataform.git"
+  },
+  "author": "Victor Hugo Vieira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/victor.h.souza.vieira/basic-health-units-plataform/issues"
+  },
+  "homepage": "https://gitlab.com/victor.h.souza.vieira/basic-health-units-plataform#README"
 }
