@@ -17,12 +17,13 @@
     "react-google-maps": "^9.4.5",
     "react-notifications-component": "^2.4.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "webpack": "^4.42.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "start_dev": "PORT=8000 react-scripts start",
-    "build": "webpack",
+    "build": "webpack --config webpack.config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -44,7 +45,6 @@
   "description": "Fron-end platform written in ReactJs to consume data from [Basic Health Units API](https://gitlab.com/victor.h.souza.vieira/basic-health-units).",
   "main": "index.js",
   "devDependencies": {
-    "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   },
   "repository": {
