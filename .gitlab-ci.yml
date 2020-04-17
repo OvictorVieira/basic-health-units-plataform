@@ -1,27 +1,7 @@
 image: node:lts-slim
-cache:
-  paths:
-    - node_modules/
 
 stages:
-  - build
   - production
-
-build:
-  stage: build
-  when: manual
-  allow_failure: false
-  artifacts:
-    paths:
-      - dist/
-  script:
-    - npm install
-    - npm run build
-  tags:
-    - build
-  only:
-    - tags
-    - branches
 
 production:
   type: deploy
@@ -33,9 +13,7 @@ production:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
-    - cd dist
-    - dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_PRODUCTION_API_KEY --skip_cleanup
-  when: on_success
+    - dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_PRODUCTION_API_KEY --skip_cleanup  
   tags:
     - deploy
   only:
