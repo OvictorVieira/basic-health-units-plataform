@@ -1,5 +1,5 @@
 import { store } from 'react-notifications-component';
-import 'react-notifications-component/dist/theme.css';
+import 'react-notifications-component/dist/scss/notification.scss';
 
 export const createSuccessNotification = (message = 'Sucesso.') => {
   let notifications =  {

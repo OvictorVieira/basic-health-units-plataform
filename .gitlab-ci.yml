@@ -4,7 +4,6 @@ stages:
   - production
 
 production:
-  type: deploy
   environment: production
   allow_failure: false
   stage: production
