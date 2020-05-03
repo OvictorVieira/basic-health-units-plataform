@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import 'react-notifications-component/dist/theme.css';
 
 import { authentication } from "../../services/requests/authentication";
 import { createSuccessNotification, createDangerNotification } from '../../components/notifications/notifications';
