@@ -13,8 +13,6 @@ To install the Development Environment, access the [Docker Readme](docker/README
 To run the project, create a `.env.local` file with the following environment variables:
 
 ```
-    .env.local
-    
     REACT_APP_GOOGLE_MAP_URL=https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=
     
     REACT_APP_GOOGLE_API_KEY=
@@ -22,7 +20,6 @@ To run the project, create a `.env.local` file with the following environment va
     REACT_APP_PRIVATE_KEY=
     
     REACT_APP_API_HOST=http://localhost:3000
-
 ```
 
 ##### REACT_APP_GOOGLE_API_KEY
