@@ -94,7 +94,7 @@ class Institutes extends Component{
 
         <WrappedMap
 
-          googleMapURL={`${ process.env.REACT_APP_GOOGLE_MAP_URL.concat(process.env.REACT_APP_GOOGLE_API_KEY) }`}
+          googleMapURL={`${ process.env.APP_GOOGLE_MAP_URL.concat(process.env.APP_GOOGLE_API_KEY) }`}
 
           loadingElement={ <div style={{ height: '100vh' }} /> }
 

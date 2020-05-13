@@ -20,7 +20,6 @@ const WrappedMap = withScriptjs(withGoogleMap((props) =>
             scaledSize: new window.google.maps.Size(40, 40)
           }}
         >
-          { institute.id }
         </Marker>
 
       ))

@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: [
@@ -36,6 +37,7 @@ module.exports = {
       template: 'public/index.html',
       favicon: 'public/favicon.ico',
       title: 'Unidades Básicas de Saúde - Bionexo'
-    })
+    }),
+    new Dotenv()
   ]
 };
