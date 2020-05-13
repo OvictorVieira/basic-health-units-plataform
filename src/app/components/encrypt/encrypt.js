@@ -1,6 +1,6 @@
 import CryptoJS from 'crypto-js';
 
-const privateKey = process.env.REACT_APP_PRIVATE_KEY;
+const privateKey = process.env.APP_PRIVATE_KEY;
 
 export const encrypt = (value) => {
 

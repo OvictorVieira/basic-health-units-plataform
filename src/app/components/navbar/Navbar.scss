@@ -5,7 +5,7 @@
   padding: 0 1em;
   position: fixed;
   width: 100vw;
-  z-index: 101;
+  z-index: 102;
 }
 
 #companyName {
@@ -99,7 +99,7 @@
   min-height: 100vh;
   max-height: 100vh;
   position: absolute;
-  z-index: 100;
+  z-index: 101;
   background: $tertiary-color;
   display: none !important;
   color: $white;
