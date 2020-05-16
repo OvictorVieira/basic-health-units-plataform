@@ -4,14 +4,14 @@ import {
   retrieveCookie } from "../../components/cookies/cookies";
 
 import Navbar from '../../components/navbar/Navbar';
-import Cards from "./components/cards";
+import Cards from "./components/cards/cards";
 import WrappedMap from '../../components/maps/Maps'
 
 import { decrypt } from "../../components/encrypt/encrypt";
 import { getInstitutesByLocation } from "../../services/requests/institutes";
 import { createDangerNotification, createWarningNotification } from "../../components/notifications/notifications";
-import SearchBox from "./components/searchBox";
-import './components/searchBox.scss'
+import SearchBox from "./components/search_box/searchBox";
+import './components/search_box/searchBox.scss'
 
 class Institutes extends Component{
 
