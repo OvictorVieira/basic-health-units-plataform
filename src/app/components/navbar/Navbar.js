@@ -100,9 +100,7 @@ class Navbar extends Component {
 
           <div className='d-flex justify-content-center mb-5'>
 
-            <button className='btn btn-outline-info w-50 mb-5'>
-              Sair
-            </button>
+            { /*{ TODO Criar o botão de Sair, buscar no git pois já foi implementado }*/ }
 
           </div>
 
