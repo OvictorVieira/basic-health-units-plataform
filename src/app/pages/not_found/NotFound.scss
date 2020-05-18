@@ -1,0 +1,45 @@
+@import '../../../assets/shared/Color';
+
+.error-contents {
+  margin: 5.25rem auto 0;
+  flex-direction: column;
+}
+
+.image-404 {
+  width: 19.875em;
+  margin-left: -1.25rem;
+
+  .cls-1 {
+    fill: $white;
+  }
+
+  .cls-2 {
+    fill: $matterhorn;
+  }
+}
+
+.error-code {
+  color: $matterhorn;
+  font-size: 5rem;
+  font-weight: 200;
+}
+
+.not-found {
+  margin-top: 3.875rem;
+  color: $white;
+  font-size: 4.125rem;
+  letter-spacing: 0.0625rem;
+  line-height: 5.625rem;
+  font-weight: 200;
+}
+
+.btn-outline-not-found {
+  color: $white;
+  border-color: $white;
+
+  &:hover {
+    background: $white;
+    border-color: $white;
+    color: $primary-color;
+  }
+}
