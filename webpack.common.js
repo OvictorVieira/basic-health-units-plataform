@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: [
@@ -7,7 +6,7 @@ module.exports = {
     './src/index.js'
   ],
   output: {
-    path: __dirname + '/public/dist',
+    path: __dirname + '/build',
     filename: 'main.js'
   },
   module: {
@@ -37,7 +36,6 @@ module.exports = {
       template: 'public/index.html',
       favicon: 'public/favicon.ico',
       title: 'Unidades Básicas de Saúde - Bionexo'
-    }),
-    new Dotenv()
+    })
   ]
 };

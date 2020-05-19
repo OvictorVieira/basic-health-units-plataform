@@ -18,21 +18,15 @@ thus, avoiding any conflicts and difficulties in raising the environment and the
 When cloning the project, simply access the `basic-health-units-plataform` project folder and run the setup script below:
 
 ```
-    $ cd basic-health-units-plataform/docker/
+    $ cd basic-health-units-plataform/
     
     $ bash ./docker-setup.sh
-```
-
-Then, execute the following commands:
-
-```
-   $ bash ./application-setup.sh
 ```
 
 And to work on a daily basis, use the command below:
 
 ```
-   $ docker-compose up
+   $ bash ./application-setup.sh
 ```
 
 Then, the npm server will run.
