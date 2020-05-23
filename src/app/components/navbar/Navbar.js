@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Navbar.scss';
 
-import logo from '../../../assets/images/logo-bionexo-white.png';
 import userImage from '../../../assets/images/user.jpg';
 import searchIcon from '../../../assets/images/search-icon.png';
 
@@ -12,6 +11,7 @@ class Navbar extends Component {
 
     this.state = {
       showSidebar: false,
+      showSearchBox: props.showSearchBox,
       companyName: props.companyName,
       companyCnpj: props.companyCnpj
     };
@@ -57,15 +57,20 @@ class Navbar extends Component {
                 <div id='search'
                      className='d-flex flex-column justify-content-center pl-3'>
 
-                  <img src={ searchIcon } className='z-depth-0 search'
-                       alt='Botão de pesquisa' height='25' />
+                  <img id='searchButton'
+                       src={ searchIcon }
+                       className='z-depth-0 search'
+                       onClick={ this.state.showSearchBox }
+                       alt='Botão de pesquisa'
+                       height='25'
+                  />
                 </div>
 
               </div>
 
               <div className='d-flex flex-row justify-content-center'>
 
-                <img src={ logo } className='w-50 card-img-top' alt='Bionexo'/>
+                <span className=''>Encontre as Unidades Básicas de Saúde mais proximas de você</span>
 
               </div>
 
