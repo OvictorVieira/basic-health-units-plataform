@@ -1,17 +1,21 @@
 import React, { Component } from "react";
 import {
-  getConstantCompanyCnpj, getConstantCompanyName,
-  retrieveCookie } from "../../components/cookies/cookies";
+  getConstantCompanyCnpj,
+  getConstantCompanyName,
+  retrieveCookie
+} from "../../components/cookies/cookies";
+
+import {
+  createDangerNotification,
+  createWarningNotification
+} from "../../components/notifications/notifications";
+import ContainerCards from "../../components/card_container/containerCards";
 
 import Navbar from '../../components/navbar/Navbar';
-import Cards from "./components/cards/cards";
-import WrappedMap from '../../components/maps/Maps'
-
 import { decrypt } from "../../components/encrypt/encrypt";
+
+import WrappedMap from '../../components/maps/Maps'
 import { getInstitutesByLocation } from "../../services/requests/institutes";
-import { createDangerNotification, createWarningNotification } from "../../components/notifications/notifications";
-import SearchBox from "./components/search_box/searchBox";
-import './components/search_box/searchBox.scss'
 
 class Institutes extends Component{
 
@@ -22,7 +26,7 @@ class Institutes extends Component{
       name: decrypt(retrieveCookie(getConstantCompanyName())),
       cnpj: decrypt(retrieveCookie(getConstantCompanyCnpj())),
       institutes: [],
-      showSearchBox: false
+      showSearchBox: true
     }
 
     this.showSearchBox = this.showSearchBox.bind(this)
@@ -34,16 +38,22 @@ class Institutes extends Component{
 
       navigator.geolocation.getCurrentPosition(position => {
 
-        getInstitutesByLocation(position.coords.latitude, position.coords.longitude)
-          .then(response => {
-
-            this.handleResponse(response);
-          })
+        this.getInstitutesByLocation(position.coords.latitude, position.coords.longitude)
 
       });
     } else {
-      createWarningNotification('Use o campo de busca passando a sua localização...');
+
+      createWarningNotification('Use o campo de busca passando a Longitude e Latitude...');
     }
+  }
+
+  getInstitutesByLocation(latitude, longitude) {
+
+    getInstitutesByLocation(latitude, longitude)
+      .then(response => {
+
+        this.handleResponse(response)
+      })
   }
 
   handleResponse(response) {
@@ -59,6 +69,7 @@ class Institutes extends Component{
   }
 
   treatSuccess(response) {
+
     this.setState({
       institutes: response['entries']
     });
@@ -69,7 +80,7 @@ class Institutes extends Component{
     createDangerNotification(response['message'])
   }
 
-  showSearchBox() {
+  showSearchBox = () => {
 
     this.setState({
       showSearchBox: !this.state.showSearchBox,
@@ -83,14 +94,15 @@ class Institutes extends Component{
 
         <Navbar companyName={ this.state.name }
                 companyCnpj={ this.state.cnpj }
-                showSearchBox={ this.state.showSearchBox }
+                showSearchBox={ this.showSearchBox }
         />
 
-        <div id='container-items' className='d-flex flex-column container-items'>
-          <SearchBox />
+        { this.state.showSearchBox &&
 
-          { this.state.institutes && <Cards institutes={ this.state.institutes }/> }
-        </div>
+          <ContainerCards showSearchBox={ this.showSearchBox }
+                          institutes={ this.state.institutes }
+                          getInstitutesByLocation={ this.getInstitutesByLocation }/>
+        }
 
         <WrappedMap
 
