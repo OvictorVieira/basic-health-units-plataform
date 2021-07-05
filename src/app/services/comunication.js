@@ -7,6 +7,8 @@ async function post(endPoint, body, headers = {}) {
   try {
     let mountedHeader = _mountHeaderBase(headers);
 
+    console.log(`HOST da API: ${process.env.REACT_APP_API_HOST}`)
+
     const response = await api.post(endPoint, body, mountedHeader);
 
     return request_success(response.data);

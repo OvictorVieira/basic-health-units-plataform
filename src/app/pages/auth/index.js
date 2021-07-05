@@ -4,7 +4,7 @@ import { authentication } from "../../services/requests/authentication";
 import { createSuccessNotification, createDangerNotification } from '../../components/notifications/notifications';
 import { encrypt } from "../../components/encrypt/encrypt";
 
-import logo from "../../../assets/images/logo-bionexo-green-pool.png";
+import logo from "../../../assets/images/healthcare-and-medical.png";
 import {
   createCookie,
   getConstantCompanyName,
@@ -110,7 +110,7 @@ class Auth extends Component {
 
               <div className='card-body'>
 
-                <div className='d-flex flex-row justify-content-center py-5'>
+                <div className='d-flex flex-row justify-content-center'>
 
                   <img src={ logo } className='w-50 card-img-top' alt='Bionexo'/>
 
