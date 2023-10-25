@@ -20,7 +20,7 @@
     "babel-loader": "^8.1.0",
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.5",
-    "crypto-js": "^4.0.0",
+    "crypto-js": "^4.2.0",
     "css-loader": "^3.5.2",
     "express": "^4.17.3",
     "html-webpack-plugin": "^4.2.0",
